@@ -1,0 +1,183 @@
+﻿@model dynamic
+
+	<h1>Game Statistics</h1>
+
+	<div class="table-responsive">
+		<p><b>Visiting Team Statistics</b></p>
+		<table class="table table-bordered">
+			<tr>
+				<th>Game ID</th>
+				<th>Team ID</th>
+				<th>Score</th>
+				<th>First Downs</th>
+				<th>Total Yards</th>
+				<th>Rush Attempts</th>
+				<th>Total Rushing Yards</th>
+				<th>Passes Completed</th>
+				<th>Passes Attempted</th>
+				<th>Passes Intercepted</th>
+				<th>Total Passing Yards</th>
+				<th>Fumbles</th>
+				<th>Fumbles Lost</th>
+				<th>Number of Sacks</th>
+				<th>Total Sack Yards Lost</th>
+				<th>Number of Punts</th>
+				<th>Average Yards Per Punt</th>
+				<th>Number Of Penalties</th>
+				<th>Total Penalty Yards</th>
+			</tr>
+			@foreach (var statistics in Model.Statistics)
+			{
+			<tr>
+				<td>
+					@statistics.Team1Id
+				</td>
+				<td>
+					@statistics.Team
+				</td>
+				<td>
+					@statistics.Team1TotalScore
+				</td>
+				<td>
+					@statistics.Team1TotalFirstDowns
+				</td>
+				<td>
+					@statistics.Team1TotalYards
+				</td>
+				<td>
+					@statistics.Team1TotalRushes
+				</td>
+				<td>
+					@statistics.Team1TotalRushingYards
+				</td>
+				<td>
+					@statistics.Team1TotalPassesCompleted
+				</td>
+				<td>
+					@statistics.Team1TotalPassesAttempted
+				</td>
+				<td>
+					@statistics.Team1TotalPassesIntercepted
+				</td>
+				<td>
+					@statistics.Team1TotalPassingYards
+				</td>
+				<td>
+					@statistics.Team1TotalFumbles
+				</td>
+				<td>
+					@statistics.Team1TotalFumblesLost
+				</td>
+				<td>
+					@statistics.Team1TotalSacks
+				</td>
+				<td>
+					@statistics.Team1TotalSackYardsLost
+				</td>
+				<td>
+					@statistics.Team1TotalNumberOfPunts
+				</td>
+				<td>
+					@statistics.Team1AverageYardsPerPunt
+				</td>
+				<td>
+					@statistics.Team1TotalNumberOfPenalties
+				</td>
+				<td>
+					@statistics.Team1TotalPenaltyYards
+				</td>
+			</tr>
+			}
+			</table>
+			<p><b>Home Team Statistics</b></p>
+			<table class="table table-bordered">
+			<tr>
+				<th>Game ID</th>
+				<th>Team ID</th>
+				<th>Score</th>
+				<th>First Downs</th>
+				<th>Total Yards</th>
+				<th>Rushing Attempts</th>
+				<th>Total Rushing Yards</th>
+				<th>Passes Completed</th>
+				<th>Passes Attempted</th>
+				<th>Passes Intercepted</th>
+				<th>Total Passing Yards</th>
+				<th>Fumbles</th>
+				<th>Fumbles Lost</th>
+				<th>Number of Sacks</th>
+				<th>Total Sack Yards Lost</th>
+				<th>Number of Punts</th>
+				<th>Average Yards Per Punt</th>
+				<th>Number Of Penalties</th>
+				<th>Total Penalty Yards</th>
+			</tr>
+			@foreach (var statistics1s in Model.Statistics1s)
+			{
+			<tr>
+				<td>
+					@statistics1s.Team2Id
+				</td>
+				<td>
+					@statistics1s.Team
+				</td>
+
+				<td>
+					@statistics1s.Team2TotalScore
+				</td>
+				<td>
+					@statistics1s.Team2TotalFirstDowns
+				</td>
+				<td>
+					@statistics1s.Team2TotalYards
+				</td>
+				<td>
+					@statistics1s.Team2TotalRushes
+				</td>
+				<td>
+					@statistics1s.Team2TotalRushingYards
+				</td>
+				<td>
+					@statistics1s.Team2TotalPassesCompleted
+				</td>
+				<td>
+					@statistics1s.Team2TotalPassesAttempted
+				</td>
+				<td>
+					@statistics1s.Team2TotalPassesIntercepted
+				</td>
+				<td>
+					@statistics1s.Team2TotalPassingYards
+				</td>
+				<td>
+					@statistics1s.Team2TotalFumbles
+				</td>
+				<td>
+					@statistics1s.Team2TotalFumblesLost
+				</td>
+				<td>
+					@statistics1s.Team2TotalSacks
+				</td>
+				<td>
+					@statistics1s.Team2TotalSackYardsLost
+				</td>
+				<td>
+					@statistics1s.Team2TotalNumberOfPunts
+				</td>
+				<td>
+					@statistics1s.Team2AverageYardsPerPunt
+				</td>
+				<td>
+					@statistics1s.Team2TotalNumberOfPenalties
+				</td>
+				<td>
+					@statistics1s.Team2TotalPenaltyYards
+				</td>
+			</tr>
+			}
+		</table>
+	</div>
+
+<link href="~/Content/bootstrap.min.css" />
+<link href="~/Scripts/jquery-3.3.1.min.js" />
+<link href="~/Scripts/bootstrap.min.js" />

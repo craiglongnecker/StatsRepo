@@ -1,0 +1,65 @@
+﻿
+@{
+	ViewBag.Title = "Index";
+}
+<head>
+	<style>
+
+		.grid-container {
+			display: grid;
+			grid-template-columns: auto auto auto;
+			grid-gap: 8px;
+			background-color: navy;
+			width: 90%;
+			margin: 10px auto;
+			padding: 10px;
+		}
+
+		.grid-item {
+			background-color: white;
+			text-align: center;
+			font-size: 12pt;
+			padding: 10px;
+			border: 2px solid red;
+		}
+	</style>
+</head>
+<body>
+	<h3 style="margin: 5px auto;">Home Page - Click on Your Favorite Team and be Directed to Their Offical Website</h3>
+	<div class="grid-container">
+		<div class="grid-item"><a href="https://www.atlantafalcons.com/" target="_blank"><img src="~/Content/images/atl_falcons.png" /></a> <hr />Atlanta Falcons</div>
+		<div class="grid-item"><a href="https://www.nfl.com/" target="_blank"><img src="~/Content/images/nfl.png" style="width: 200px; height: 200px;" /></a></div>
+		<div class="grid-item"><a href="https://www.azcardinals.com/" target="_blank"><img src="~/Content/images/az_cardinals.png" /></a> <hr />Arizona Cardinals</div>
+		<div class="grid-item"><a href="https://www.baltimoreravens.com/" target="_blank"><img src="~/Content/images/balt_ravens.png" /></a> <hr /> Baltimore Ravens</div>
+		<div class="grid-item"><a href="https://www.buffalobills.com/" target="_blank"><img src="~/Content/images/buff_bills.png" /></a> <hr /> Buffalo Bills</div>
+		<div class="grid-item"><a href="https://www.panthers.com/" target="_blank"><img src="~/Content/images/car_panthers.png" /></a> <hr /> Carolina Panthers</div>
+		<div class="grid-item"><a href="https://www.chicagobears.com/" target="_blank"><img src="~/Content/images/chi_bears.png" /></a> <hr /> Chicago Bears</div>
+		<div class="grid-item"><a href="https://www.bengals.com/" target="_blank"><img src="~/Content/images/cinn_bengals.png" /></a><hr /> Cinncinati Bengals</div>
+		<div class="grid-item"><a href="https://www.clevelandbrowns.com/" target="_blank"><img src="~/Content/images/cleve_browns.png" /></a> <hr /> Cleveland Browns</div>
+		<div class="grid-item"><a href="https://www.dallascowboys.com/" target="_blank"><img src="~/Content/images/dall_cowboys.png" /></a> <hr /> Dallas Cowboys</div>
+		<div class="grid-item"><a href="https://www.denverbroncos.com/" target="_blank"><img src="~/Content/images/den_broncos.png" /></a> <hr /> Denver Broncos</div>
+		<div class="grid-item"><a href="https://www.detroitlions.com/" target="_blank"><img src="~/Content/images/det_lions.png" /></a> <hr /> Detroit Lions</div>
+		<div class="grid-item"><a href="https://www.packers.com/" target="_blank"><img src="~/Content/images/gb_packers.png" /></a> <hr /> Green Bay Packers</div>
+		<div class="grid-item"><a href="https://www.houstontexans.com/" target="_blank"><img src="~/Content/images/houston_texans.png" /></a> <hr /> Houston Texans</div>
+		<div class="grid-item"><a href="https://www.colts.com/" target="_blank"><img src="~/Content/images/ind_colts.png" /></a> <hr /> Indianapolis Colts</div>
+		<div class="grid-item"><a href="https://www.jaguars.com/" target="_blank"><img src="~/Content/images/jck_jag.png" /></a> <hr /> Jacksonville Jaguars</div>
+		<div class="grid-item"><a href="https://www.chiefs.com/" target="_blank"><img src="~/Content/images/kc_chiefs.png" /></a> <hr /> Kansas City Chiefs</div>
+		<div class="grid-item"><a href="https://www.chargers.com/" target="_blank"><img src="~/Content/images/la_chargers.png" /></a> <hr /> Los Angeles Chargers</div>
+		<div class="grid-item"><a href="https://www.therams.com/" target="_blank"><img src="~/Content/images/la_rams.png" /></a> <hr /> Los Angeles Rams</div>
+		<div class="grid-item"><a href="https://www.miamidolphins.com/" target="_blank"><img src="~/Content/images/miami_dolphins.png" /></a> <hr /> Miami Dolphins</div>
+		<div class="grid-item"><a href="https://www.vikings.com/" target="_blank"><img src="~/Content/images/mn_vikings.png" /></a> <hr /> Minnesota Vikings</div>
+		<div class="grid-item"><a href="https://www.patriots.com/" target="_blank"><img src="~/Content/images/ne_pats.png" /></a> <hr /> New England Patriots</div>
+		<div class="grid-item"><a href="https://www.neworleanssaints.com/" target="_blank"><img src="~/Content/images/no_saints.png" /></a> <hr /> New Orleans Saints</div>
+		<div class="grid-item"><a href="https://www.giants.com/" target="_blank"><img src="~/Content/images/ny_giants.gif" /></a> <hr /> New York Giants</div>
+		<div class="grid-item"><a href="https://www.newyorkjets.com/" target="_blank"><img src="~/Content/images/ny_jets.png" /></a> <hr /> New York Jets</div>
+		<div class="grid-item"><a href="https://www.raiders.com/" target="_blank"><img src="~/Content/images/oak_raiders.png" /></a> <hr /> Oakland Raiders</div>
+		<div class="grid-item"><a href="https://www.philadelphiaeagles.com/" target="_blank"><img src="~/Content/images/phil_eagles.png" /></a> <hr /> Philadelphia Eagles</div>
+		<div class="grid-item"><a href="https://www.steelers.com/" target="_blank"><img src="~/Content/images/pitt_steelers.png" /></a> <hr /> Pittsburgh Steelers</div>
+		<div class="grid-item"><a href="https://www.seahawks.com/" target="_blank"><img src="~/Content/images/sea_seahawks.png" /></a> <hr /> Seattle Seahawks</div>
+		<div class="grid-item"><a href="https://www.49ers.com/" target="_blank"><img src="~/Content/images/sf_49ers.png" /></a> <hr /> San Francisco 49ers</div>
+		<div class="grid-item"><a href="https://wwhttps://www.buccaneers.com/" target="_blank"><img src="~/Content/images/tb_buccaneers.png" /></a> <hr /> Tampa Bay Buccaneers</div>
+		<div class="grid-item"><a href="https://www.titansonline.com/" target="_blank"><img src="~/Content/images/tn_titans.png" /></a> <hr /> Tennessee Titans</div>
+		<div class="grid-item"><a href="https://www.redskins.com/" target="_blank"><img src="~/Content/images/wash_redskins.png" /></a> <hr /> Washington Redskins</div>
+	</div>
+
+</body>

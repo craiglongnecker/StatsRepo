@@ -1,0 +1,20 @@
+﻿@foreach (var team in Model.Teams)
+				{
+					<tr>
+						<td>
+							@team.TeamID
+						</td>
+						<td>
+							@team.TeamCity
+						</td>
+						<td>
+							@team.TeamName
+						</td>
+						<td>
+							@team.Wins
+						</td>
+						<td>
+							@team.Losses
+						</td>
+					</tr>
+				}s

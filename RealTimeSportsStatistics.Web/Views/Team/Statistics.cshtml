@@ -1,0 +1,46 @@
+﻿@model RealTimeSportsStatistics.Web.Models.TeamDisplayModel
+<html>
+<head>
+
+</head>
+<body>
+	<br />
+	<h1>Team Names and Colors</h1>
+
+	<div class="table-responsive">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Team City</th>
+					<th>Team Name</th>
+					<th>Team Color 1</th>
+					<th>Team Color 2</th>
+				</tr>
+				</thead>
+				<tbody>
+				@foreach (var team in Model.Teams)
+				{
+				<tr>
+					<td>
+						@team.TeamCity
+					</td>
+					<td>
+						@team.TeamName
+					</td>
+					<td>
+						@team.ColorOne
+					</td>
+					<td>
+						@team.ColorTwo
+					</td>
+				</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
+
+<link href="~/Content/bootstrap.min.css" />
+<link href="~/Scripts/jquery-3.3.1.min.js" />
+<link href="~/Scripts/bootstrap.min.js" />
