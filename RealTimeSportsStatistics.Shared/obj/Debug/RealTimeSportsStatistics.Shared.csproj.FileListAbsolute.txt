@@ -15,3 +15,20 @@ C:\Users\craig\source\repos\RealTimeSportsStatistics.Web\RealTimeSportsStatistic
 C:\Users\craig\source\repos\RealTimeSportsStatistics.Web\RealTimeSportsStatistics.Shared\obj\Debug\RealTimeSportsStatistics.Shared.csproj.CopyComplete
 C:\Users\craig\source\repos\RealTimeSportsStatistics.Web\RealTimeSportsStatistics.Shared\obj\Debug\RealTimeSportsStatistics.Shared.dll
 C:\Users\craig\source\repos\RealTimeSportsStatistics.Web\RealTimeSportsStatistics.Shared\obj\Debug\RealTimeSportsStatistics.Shared.pdb
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Shared\bin\Debug\RealTimeSportsStatistics.Shared.dll.config
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Shared\bin\Debug\RealTimeSportsStatistics.Shared.dll
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Shared\bin\Debug\RealTimeSportsStatistics.Shared.pdb
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Shared\bin\Debug\EntityFramework.dll
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Shared\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Shared\bin\Debug\Ninject.dll
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Shared\bin\Debug\RealTimeSportsStatistics.Domain.dll
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Shared\bin\Debug\RealTimeSportsStatistics.Domain.pdb
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Shared\bin\Debug\RealTimeSportsStatistics.Domain.dll.config
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Shared\bin\Debug\EntityFramework.xml
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Shared\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Shared\bin\Debug\Ninject.xml
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Shared\obj\Debug\RealTimeSportsStatistics.Shared.csprojAssemblyReference.cache
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Shared\obj\Debug\RealTimeSportsStatistics.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Shared\obj\Debug\RealTimeSportsStatistics.Shared.csproj.CopyComplete
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Shared\obj\Debug\RealTimeSportsStatistics.Shared.dll
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Shared\obj\Debug\RealTimeSportsStatistics.Shared.pdb

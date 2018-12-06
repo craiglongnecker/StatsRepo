@@ -12,3 +12,17 @@ C:\Users\craig\source\repos\RealTimeSportsStatistics.Web\RealTimeSportsStatistic
 C:\Users\craig\source\repos\RealTimeSportsStatistics.Web\RealTimeSportsStatistics.Domain\obj\Debug\RealTimeSportsStatistics.Domain.dll
 C:\Users\craig\source\repos\RealTimeSportsStatistics.Web\RealTimeSportsStatistics.Domain\obj\Debug\RealTimeSportsStatistics.Domain.pdb
 C:\Users\craig\source\repos\RealTimeSportsStatistics.Web\RealTimeSportsStatistics.Domain\obj\Debug\RealTimeSportsStatistics.Domain.csprojAssemblyReference.cache
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Domain\bin\Debug\RealTimeSportsStatistics.Domain.dll.config
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Domain\bin\Debug\RealTimeSportsStatistics.Domain.dll
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Domain\bin\Debug\RealTimeSportsStatistics.Domain.pdb
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Domain\bin\Debug\EntityFramework.dll
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Domain\bin\Debug\EntityFramework.xml
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Domain\obj\Debug\RealTimeSportsStatistics.Domain.csprojAssemblyReference.cache
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Domain\obj\Debug\RealTimeSportsStatistics.Domain.Migrations.InitialDatabaseWithTeamsAndStatisticsTables.resources
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Domain\obj\Debug\RealTimeSportsStatistics.Domain.csproj.GenerateResource.cache
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Domain\obj\Debug\RealTimeSportsStatistics.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Domain\obj\Debug\RealTimeSportsStatistics.Domain.csproj.CopyComplete
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Domain\obj\Debug\RealTimeSportsStatistics.Domain.dll
+C:\Users\Mik\Desktop\sports repo ec 6 (2)\RealTimeSportsStatistics.Domain\obj\Debug\RealTimeSportsStatistics.Domain.pdb

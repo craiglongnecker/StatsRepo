@@ -5,42 +5,6 @@
 	<link href="~/Content/bootstrap.css" type="text/css" />
 	<script src="~/Scripts/GameScripts/Game.js" type="text/javascript"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
-    <script>
-        function background(team, side) {
-            var primaryColor, secondaryColor;
-
-            switch (team) {
-                case 'mn':
-                    primaryColor = '#4F2683';
-                    secondaryColor = '#FFC62F';
-                    break;
-                case 'ne':
-                    primaryColor = '#002244';
-                    secondaryColor = '#C60C30';
-                    break;
-                default:
-                    primaryColor = '#FFFFFF';
-                    secondaryColor = '#000000';
-            }
-
-            if (side == 'away')
-            {
-                document.getElementById("team1Area").style.backgroundColor = primaryColor;
-                document.getElementById("team1Area").style.color = secondaryColor;
-
-                document.getElementById("team1InputArea").style.backgroundColor = primaryColor;
-                document.getElementById("team1InputArea").style.color = secondaryColor;
-            }
-            else
-            {
-                document.getElementById("team2Area").style.backgroundColor = primaryColor;
-                document.getElementById("team2Area").style.color = secondaryColor;
-
-                document.getElementById("team2InputArea").style.backgroundColor = primaryColor;
-                document.getElementById("team2InputArea").style.color = secondaryColor;
-            }
-        }
-    </script>
 	<!--<script src="~/Scripts/GameScripts/Game2.js" type="text/javascript"></script>-->
 	<!--<script src='<%= ResolveUrl("~/Scripts/GameScripts/Game2.js") %>' type="text/javascript"></script>-->
 	<style type="text/css">
@@ -64,6 +28,7 @@
 		}
 
 		.team1Area {
+			font-weight: bold;
 			margin-top: 10px;
 			width: 50%;
 			height: auto;
@@ -72,7 +37,17 @@
 			padding: 1%;
 		}
 
+
+		.hidden {
+			display: none;
+		}
+
+		.visible {
+			display: normal;
+		}
+
 		.team2Area {
+			font-weight: bold;
 			margin-top: 10px;
 			width: 50%;
 			height: auto;
@@ -82,6 +57,7 @@
 		}
 
 		.team1InputArea {
+			font-weight: bold;
 			margin-top: 10px;
 			width: 50%;
 			height: auto;
@@ -103,10 +79,32 @@
 			text-align: center;
 			font-size: 8pt;
 		}
+
+		.button {
+			background-color: #333;
+			border: none;
+			border-radius: 5px;
+			color: white;
+			margin: 10px;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+		}
+
+		button {
+			background-color: azure;
+			border: 1px solid black;
+			color: black;
+			border-radius: 5px;
+			text-align: center;
+			font-size: 12px;
+		}
 	</style>
 </head>
 <body>
-	<script >
+	<script>
 		function team1Fumble() { //<!--increments team1 fumble count by 1 -->
 			let lbl = document.getElementById('team1FumbleLbl');
 			var current_count = lbl.innerText;
@@ -149,7 +147,7 @@
 			document.getElementById("team2PassesAttLbl").innerHTML = current_count_int.toString();
 		}
 
-	 
+
 		function team1PassIntercepted() { //<!--increments team1 intercepted passes
 			let lbl = document.getElementById('team1PassIntLbl');
 			var current_count = lbl.innerText;
@@ -320,7 +318,7 @@
 			document.getElementById("team2ScoreSel").selectedIndex = "";
 		}
 
-		function team1Rush() { 
+		function team1Rush() {
 			let yards = document.getElementById('team1RushYardsInput').value;
 			var yards_int = parseFloat(yards, 10);
 
@@ -365,7 +363,7 @@
 		}
 
 
-		function team1PassYards() { 
+		function team1PassYards() {
 			let yards = document.getElementById('team1PassYardsInput').value;
 			var yards_int = parseFloat(yards, 10);
 
@@ -382,7 +380,7 @@
 			document.getElementById("team1PassYardsInput").value = null;
 		}
 
-		function team2PassYards() { 
+		function team2PassYards() {
 			let yards = document.getElementById('team2PassYardsInput').value;
 			var yards_int = parseFloat(yards, 10);
 
@@ -399,15 +397,20 @@
 			document.getElementById("team2PassYardsInput").value = null;
 		}
 
-		
+
 		function team1Sack() {
 			let yards = document.getElementById('team1YardsLostInput').value;
 			var yards_int = parseFloat(yards, 10);
 
-			let YardsLbl = document.getElementById('team1TotalYardsLbl'); 
+			let YardsLbl = document.getElementById('team1TotalYardsLbl');
 			var current_yards = YardsLbl.innerText;
 			var current_yards_int = parseFloat(current_yards, 10) - yards_int;
 			document.getElementById("team1TotalYardsLbl").innerHTML = current_yards_int.toString();
+
+			let totalSackYardsLbl = document.getElementById('team1YardLostLbl');
+			var current_yards_lost = totalSackYardsLbl.innerText;
+			var current_yards_lost_int = parseFloat(current_yards_lost, 10) + yards_int;
+			document.getElementById("team1YardLostLbl").innerHTML = current_yards_lost_int.toString();
 
 			let count_lbl = document.getElementById('team1SackLbl');
 			var current_count = count_lbl.innerText;
@@ -425,6 +428,11 @@
 			var current_yards = YardsLbl.innerText;
 			var current_yards_int = parseFloat(current_yards, 10) - yards_int;
 			document.getElementById("team2TotalYardsLbl").innerHTML = current_yards_int.toString();
+
+			let totalSackYardsLbl = document.getElementById('team2YardLostLbl');
+			var current_yards_lost = totalSackYardsLbl.innerText;
+			var current_yards_lost_int = parseFloat(current_yards_lost, 10) + yards_int;
+			document.getElementById("team2YardLostLbl").innerHTML = current_yards_lost_int.toString();
 
 			let count_lbl = document.getElementById('team2SackLbl');
 			var current_count = count_lbl.innerText;
@@ -473,10 +481,10 @@
 			var current_count = count_lbl.innerText;
 			var current_count_int = parseFloat(current_count, 10) + 1;
 			document.getElementById("team1PenLbl").innerHTML = current_count_int.toString();
-			
+
 			let yards = document.getElementById('team1PenaltyYardsInput').value;
 			var pen_yards_int = parseFloat(yards, 10);
-			
+
 			let yards_lbl = document.getElementById('team1PenYardsLbl');
 			var current_yards = yards_lbl.innerText;
 			var current_yards_int = parseFloat(current_yards, 10) + pen_yards_int;
@@ -502,20 +510,219 @@
 			document.getElementById("team2PenaltyYardsInput").value = null;
 		}
 
+		function resetTeams() {
+			document.getElementById("team1Select").selectedIndex = "0";
+			document.getElementById("team2Select").value = "default";
+		}
+
+		function teamStyle(team, side) {
+			var primaryColor, secondaryColor, img, index, teamName;
+
+			var teamNames = ["Team Name", "Atlanta Falcons", "Arizona Cardinals", "Buffalo Bills", "Baltimore Ravens", "Carolina Panthers", "Chicago Bears", "Cinncinati Bengals", "Cleveland Browns",
+				"Dallas Cowboys", "Denver Broncos", "Detroit Lions", " Green Bay Packers", "Houston Texans", "Indianapolis Colts", "Jacksonville Jaguars", "Kansas City Chiefs",
+				"Los Angeles Chargers", "Los Angeles Rams", "Miami Dolphins", "Minnesota Vikings", "New England Patriots", "New Orleans Saints", "New York Giants", "New York Jets",
+				"Oakland Raiders", "Philidelphia Eagles", "Pittsburgh Steelers", "San Francisco 49ers", "Seattle Seahawks", "Tampa Bay Buccaneers", "Tenessee Titans", "Washington Redskins"];
+
+			var teamCodes = ["default", "atl", "az", "blt", "buf", "car", "chi", "cin", "cle", "dal", "den", "det", "gb", "hou", "ind", "jck", "kc", "lac", "lar", "mia", "mn",
+				"ne", "no", "nyg", "nyj", "oak", "phi", "pit", "sf", "sea", "tb", "tn", "wsh"];
+
+			var primaryColors = ["#FFFFFF", "#97233F", "#a71930", "#241773", "#00338D", "#0085CA", "#0B162A", "#fb4f14", "#311D00",
+				"#003594", "#FB4F14", "#0076b6", "#203731", "#03202f", "#002C5F", "#006778", "#E31837",
+				"#002A5E", "#002244", "#008E97", "#4F2683", "#002244", "#D3BC8D", "#0B2265", "#003F2D",
+				"#000000", "#004C54", "#FFB612", "#AA0000", "#002244", "#D50A0A", "#002a5c", "#773141",];
+
+			var secondaryColors = ["#000000", "#000000", "#000000", "#9E7C0C", "#C60C30", "#101820", "#c83803", "#000000", "#ff3c00",
+				"#041E42", "#002244", "#B0B7BC", "#FFB612", "#A71930", "#A2AAAD", "#D7A22A", "#FFB81C",
+				"#FFC20E", "#866D4B", "#F26A24", "#FFC62F", "#C60C30", "#101820", "#a71930", "#FFFFFF",
+				"#A5ACAF", "#A5ACAF", "#101820", "#B3995D", "#69BE28", "#FF7900", "#4495D1", "#FFB612",];
+
+			var imgs = ["..\\Content\\images\\nfl.png", "..\\Content\\images\\atl_falcons.png", "..\\Content\\images\\az_cardinals.png", "..\\Content\\images\\balt_ravens.png", "..\\Content\\images\\buff_bills.png",
+				"..\\Content\\images\\car_panthers.png", "..\\Content\\images\\chi_bears.png", "..\\Content\\images\\cinn_bengals.png", "..\\Content\\images\\cleve_browns.png",
+				"..\\Content\\images\\dall_cowboys.png", "..\\Content\\images\\den_broncos.png", "..\\Content\\images\\det_lions.png", "..\\Content\\images\\gb_packers.png",
+				"..\\Content\\images\\houston_texans.png", "..\\Content\\images\\ind_colts.png", "..\\Content\\images\\jck_jag.png", "..\\Content\\images\\kc_chiefs.png",
+				"..\\Content\\images\\la_chargers.png", "..\\Content\\images\\la_rams.png", "..\\Content\\images\\miami_dolphins.png", "..\\Content\\images\\mn_vikings.png",
+				"..\\Content\\images\\ne_pats.png", "..\\Content\\images\\no_saints.png", "..\\Content\\images\\ny_giants.gif", "..\\Content\\images\\ny_jets.png",
+				"..\\Content\\images\\oak_raiders.png", "..\\Content\\images\\phil_eagles.png", "..\\Content\\images\\pitt_steelers.png",
+				"..\\Content\\images\\sf_49ers.png", "..\\Content\\images\\sea_seahawks.png", "..\\Content\\images\\tb_buccaneers.png", "..\\Content\\images\\tn_titans.png", "..\\Content\\images\\wash_redskins.png"];
+
+			index = teamCodes.indexOf(team);
+
+			primaryColor = primaryColors[index];
+			secondaryColor = secondaryColors[index];
+			img = imgs[index];
+			teamName = teamNames[index];
+
+			if (side == 'away') {
+				document.getElementById("team1Area").style.backgroundColor = primaryColor;
+				document.getElementById("team1Area").style.color = secondaryColor;
+
+				document.getElementById("team1InputArea").style.backgroundColor = primaryColor;
+				document.getElementById("team1InputArea").style.color = secondaryColor;
+
+				document.getElementById("team1Logo").src = img;
+
+				document.getElementById("team1ScoreNameLbl").innerHTML = teamName;
+			}
+			else {
+				document.getElementById("team2Area").style.backgroundColor = primaryColor;
+				document.getElementById("team2Area").style.color = secondaryColor;
+
+				document.getElementById("team2InputArea").style.backgroundColor = primaryColor;
+				document.getElementById("team2InputArea").style.color = secondaryColor;
+
+				document.getElementById("team2Logo").src = img;
+
+				document.getElementById("team2ScoreNameLbl").innerHTML = teamName;
+			}
+		}
+
+		function saveStats() {
+			var select1 = document.getElementById("team1Select");
+			var team1Id = select1.options[select1.selectedIndex].index;
+			var team1Score = document.getElementById('team1CurrentScore').innerText;
+			var team1TotalYards = document.getElementById('team1TotalYardsLbl').innerText;
+			var team1RushYards = document.getElementById('team1RushYardsLbl').innerText;
+			var team1PassYards = document.getElementById('team1PassYards').innerText;
+			var team1SackYards = document.getElementById('team1SackLbl').innerText;
+			var team1PenYards = document.getElementById('team1PenYardsLbl').innerText;
+			var team1PuntAvg = document.getElementById('team1AverageLbl').innerText;
+			var team1FirstDowns = document.getElementById('team1FirstDownLbl').innerText;
+			var team1Rushes = document.getElementById('team1RushLabel').innerText;
+			var team1PassAtt = document.getElementById('team1PassesAttLbl').innerText;
+			var team1PassComp = document.getElementById('team1PassComLbl').innerText;
+			var team1PassInt = document.getElementById('team1PassIntLbl').innerText;
+			var team1Sacks = document.getElementById('team1SackLbl').innerText;
+			var team1Fumbles = document.getElementById('team1FumbleLbl').innerText;
+			var team1FumblesLost = document.getElementById('team1FumblesLostLbl').innerText;
+			var team1Punts = document.getElementById('team1PuntLabel').innerText;
+			var team1Penalties = document.getElementById('team1PenLbl').innerText;
+
+			var select2 = document.getElementById("team2Select");
+			var team2Id = select2.options[select2.selectedIndex].index;
+			var team2Score = document.getElementById('team2CurrentScore').innerText;
+			var team2TotalYards = document.getElementById('team2TotalYardsLbl').innerText;
+			var team2RushYards = document.getElementById('team2RushYardsLbl').innerText;
+			var team2PassYards = document.getElementById('team2PassYards').innerText;
+			var team2SackYards = document.getElementById('team2SackLbl').innerText;
+			var team2PenYards = document.getElementById('team2PenYardsLbl').innerText;
+			var team2PuntAvg = document.getElementById('team2AverageLbl').innerText;
+			var team2FirstDowns = document.getElementById('team2FirstDownLbl').innerText;
+			var team2Rushes = document.getElementById('team2RushLabel').innerText;
+			var team2PassAtt = document.getElementById('team2PassesAttLbl').innerText;
+			var team2PassComp = document.getElementById('team2PassComLbl').innerText;
+			var team2PassInt = document.getElementById('team2PassIntLbl').innerText;
+			var team2Sacks = document.getElementById('team2SackLbl').innerText;
+			var team2Fumbles = document.getElementById('team2FumbleLbl').innerText;
+			var team2FumblesLost = document.getElementById('team2FumblesLostLbl').innerText;
+			var team2Punts = document.getElementById('team2PuntLabel').innerText;
+			var team2Penalties = document.getElementById('team2PenLbl').innerText;
+
+			$.ajax({
+				url: "CreateModel",
+				dataType: "json",
+				data: {
+					Team1Id: team1Id,
+					Team1TotalScore: team1Score,
+					Team1TotalYards: team1TotalYards,
+					Team1TotalRushingYards: team1RushYards,
+					Team1TotalPassingYards: team1PassYards,
+					Team1TotalSackYardsLost: team1SackYards,
+					Team1TotalPenaltyYards: team1PenYards,
+					Team12AverageYardsPerPunt: team1PuntAvg,
+					Team1TotalFirstDowns: team1FirstDowns,
+					Team1TotalRushes: team1Rushes,
+					Team1TotalPassesAttempted: team1PassAtt,
+					TeamTotalPassesCompleted: team1PassComp,
+					Team1TotalPassesIntercepted: team1PassInt,
+					Team1TotalSacks: team1Sacks,
+					Team1TotalFumbles: team1Fumbles,
+					Team1TotalFumblesLost: team1FumblesLost,
+					Team1TotalNumberOfPunts: team1Punts,
+					Team1TotalNumberOfPenalties: team1Penalties,
+				}
+			});
+
+			$.ajax({
+				url: "CreateModel1",
+				dataType: "json",
+				data: {
+					Team2Id: team2Id,
+					Team2TotalScore: team2Score,
+					Team2TotalYards: team2TotalYards,
+					Team2TotalRushingYards: team2RushYards,
+					Team2TotalPassingYards: team2PassYards,
+					Team2TotalTotalSackYardsLost: team2SackYards,
+					Team2TotalPenaltyYards: team2PenYards,
+					Team2AverageYardsPerPunt: team2PuntAvg,
+					Team2TotalFirstDowns: team2FirstDowns,
+					Team2TotalRushes: team2Rushes,
+					Team2TotalPassesAttempted: team2PassAtt,
+					Team2TotalPassesCompleted: team2PassComp,
+					Team2TotalPassesIntercepted: team2PassInt,
+					Team2TotalSacks: team2Sacks,
+					Team2TotalFumbles: team2Fumbles,
+					Team2TotalFumblesLost: team2FumblesLost,
+					Team2TotalNumberOfPunts: team2Punts,
+					Team2TotalNumberOfPenalties: team2Penalties,
+				}
+			}).done(function (data) {
+				if (data) {
+					$("#successMessage").removeClass("hidden").addClass("visible");
+				} else {
+					$("#errorMessage").removeClass("hidden").addClass("visible");
+				}
+			});
+		}
+
+		function resetTO() {
+			document.getElementById("1toButton1").checked = true;
+			document.getElementById("1toButton2").checked = true;
+			document.getElementById("1toButton3").checked = true;
+
+			document.getElementById("2toButton1").checked = true;
+			document.getElementById("2toButton2").checked = true;
+			document.getElementById("2toButton3").checked = true;
+		}
+
+		function resetTOOvertime() {
+			document.getElementById("1toButton1").checked = true;
+			document.getElementById("1toButton2").checked = false;
+			document.getElementById("1toButton3").checked = false;
+
+			document.getElementById("2toButton1").checked = true;
+			document.getElementById("2toButton2").checked = false;
+			document.getElementById("2toButton3").checked = false;
+		}
+
+		function isFinal() {
+			let team1 = document.getElementById('team1CurrentScore');
+			var final = team1.innerText;
+			var final_int = parseInt(final, 10);
+			document.getElementById("team1FinalScore").innerHTML = final_int;
+
+			let final2 = document.getElementById('team2CurrentScore').innerText;
+			var final2_int = parseInt(final2, 10);
+			document.getElementById("team2FinalScore").innerHTML = final2_int;
+		}
 
 	</script>
 	<div id="container">
+		<div id="successMessage" class="hidden alert alert-success">Successfully Saved Stats!</div>
+		<div id="errorMessage" class="hidden alert alert-danger">Error Occurred During Save!</div>
 		<div class="scoreArea">
 			<!---------open area for scoreArea---------------------------------------------->
 			<div class="row">
 				<!--row for select teams and reset button-->
 				<div class="col" style="text-align:left;">
 					<form action="./" method="GET">
-						<select name="team1Select" onchange="background(this.value, 'away')">
+
+
+						<select name="team1Select" id="team1Select" onchange="teamStyle(this.value, 'away')">
 							<option value="default">Pick A Team</option>
 							<option value="atl">Atlanta Falcons</option>
 							<option value="az">Arizona Cardinals</option>
 							<option value="blt">Baltimore Ravens</option>
+							<option value="buf">Buffalo Bills</option>
 							<option value="car">Carolina Panthers</option>
 							<option value="chi">Chicago Bears</option>
 							<option value="cin">Cinncinati Bengals</option>
@@ -530,7 +737,7 @@
 							<option value="kc">Kansas City Chiefs</option>
 							<option value="lac">Los Angeles Chargers</option>
 							<option value="lar">Los Angeles Rams</option>
-							<option value="mai">Miami Dolphins</option>
+							<option value="mia">Miami Dolphins</option>
 							<option value="mn">Minnesota Vikings</option>
 							<option value="ne">New England Patriots</option>
 							<option value="no">New Orleans Saints</option>
@@ -539,8 +746,8 @@
 							<option value="oak">Oakland Raiders</option>
 							<option value="phi">Philadelphia Eagles</option>
 							<option value="pit">Pittsburgh Steelers</option>
-							<option value="sea">Seattle Seahawks</option>
 							<option value="sf">San Francisco 49ers</option>
+							<option value="sea">Seattle Seahawks</option>
 							<option value="tb">Tampa Bay Buccaneers</option>
 							<option value="tn">Tenessee Titans</option>
 							<option value="wsh">Washington Redskins</option>
@@ -548,15 +755,18 @@
 					</form>
 				</div>
 				<div class="col" style="text-align:center;">
-					<button id="reset" type="reset">Reset</button>
+					<button id="reset" type="reset" class="button" onclick="window.location.href=window.location.href" , resetTeams()">Reset</button>
+					<button id="submit" class="button" onclick="saveStats()">Save Stats</button>
 				</div>
 				<div class="col" style="text-align: right;">
 					<form action="./" method="GET">
-						<select name="team2Select" onchange="background(this.value, 'home')">
+
+						<select name="team2Select" id="team2Select" onchange="teamStyle(this.value, 'home')">
 							<option value="default">Pick A Team</option>
 							<option value="atl">Atlanta Falcons</option>
 							<option value="az">Arizona Cardinals</option>
 							<option value="blt">Baltimore Ravens</option>
+							<option value="buf">Buffalo Bills</option>
 							<option value="car">Carolina Panthers</option>
 							<option value="chi">Chicago Bears</option>
 							<option value="cin">Cinncinati Bengals</option>
@@ -571,7 +781,7 @@
 							<option value="kc">Kansas City Chiefs</option>
 							<option value="lac">Los Angeles Chargers</option>
 							<option value="lar">Los Angeles Rams</option>
-							<option value="mai">Miami Dolphins</option>
+							<option value="mia">Miami Dolphins</option>
 							<option value="mn">Minnesota Vikings</option>
 							<option value="ne">New England Patriots</option>
 							<option value="no">New Orleans Saints</option>
@@ -580,8 +790,8 @@
 							<option value="oak">Oakland Raiders</option>
 							<option value="phi">Philadelphia Eagles</option>
 							<option value="pit">Pittsburgh Steelers</option>
-							<option value="sea">Seattle Seahawks</option>
 							<option value="sf">San Francisco 49ers</option>
+							<option value="sea">Seattle Seahawks</option>
 							<option value="tb">Tampa Bay Buccaneers</option>
 							<option value="tn">Tenessee Titans</option>
 							<option value="wsh">Washington Redskins</option>
@@ -593,8 +803,8 @@
 			<div class="row">
 				<!------row for logos, team name, and quarter score card-->
 				<div class="col-sm-3" style="align-content:center; text-align:center;">
-					<img id=" " team1Logo" src="~/Content/images/nfl.png" style="width:200px; height: 200px;" /> <br />
-					<label id="team1Name">Team 1 Name</label>
+					<img id="team1Logo" team1Logo" src="~/Content/images/nfl.png" style=" margin-top: 25px; width:200px; height: 200px;" /> <br />
+
 				</div>
 				<div class="col-sm-6" style="align-content:center; margin: auto 0;">
 					<div class="quarterScores">
@@ -602,10 +812,10 @@
 							<thead>
 								<tr>
 									<th></th>
-									<th>Q1</th>
-									<th>Q2</th>
-									<th>Q3</th>
-									<th>Q4</th>
+									<th>1st</th>
+									<th>2nd</th>
+									<th>3rd</th>
+									<th>4th</th>
 									<th>OT</th>
 									<th>Final</th>
 								</tr>
@@ -629,95 +839,100 @@
 									<td style="font-size: 12pt;"><label id="team2OTScore"></label></td>
 									<td style="font-size: 12pt;"><label id="team2FinalScore"></label></td>
 								</tr>
+								<tr>
+									<td></td>
+									<td><input type="radio" name="rButton" id="QRButton1" checked="checked" value="q1">1st</td>
+									<td><input type="radio" name="rButton" id="QRButton2" value="q2">2nd</td>
+									<td><input type="radio" name="rButton" id="QRButton3" onclick="resetTO()" value="q3">3rd</td>
+									<td><input type="radio" name="rButton" id="QRButton4" value="q4">4th</td>
+									<td><input type="radio" name="rButton" id="QRButtonO" onclick="resetTOOvertime()" value="ot">OT</td>
+									<td><input type="radio" name="rButton" id="QRButtonF" onclick="isFinal()" value="final">Final</td>
+								</tr>
 							</tbody>
 						</table>
 					</div>
 				</div>
 				<div class="col-sm-3" style="align-content:center; text-align:center;">
-					<img id="team2Logo" src="~/Content/images/nfl.png" style="width:200px; height: 200px;" /> <br />
-					<label id="teamName">Team 2 Name</label>
+					<img id="team2Logo" src="~/Content/images/nfl.png" style=" margin-top: 25px; width:200px; height: 200px;" /> <br />
+
 				</div>
 			</div> <!------close row for logos, team names, and score card-->
 
 			<div class="row">
 				<!---open row for team score, quarter selection----->
 				<div class="col col-sm-3" style="text-align:center">
-					<label id="team1CurrentScore">0</label>
+					<label id="team1CurrentScore" style="font-size: 300%; font-weight:bold;">0</label>
 				</div>
 				<div class="col-sm-6" style="align-content:center; text-align:center;">
-					<form action="">
-						<label class="radio-inline">
-							<input type="radio" name="rButton" id="QRButton1" checked="checked" value="q1"> Q1<br>
-						</label>
-						<label class="radio-inline">
-							<input type="radio" name="rButton" id="QRButton2" value="q2"> Q2<br>
-						</label>
-						<label class="radio-inline">
-							<input type="radio" name="rButton" id="QRButton3" value="q3"> Q3<br>
-						</label>
-						<label class="radio-inline">
-							<input type="radio" name="rButton" id="QRButton4" value="q4"> Q4<br>
-						</label>
-						<label class="radio-inline">
-							<input type="radio" name="rButton" id="QRButtonO" value="ot"> OT<br>
-						</label>
-						<label class="radio-inline">
-							<input type="radio" name="rButton" id="QRButtonF" value="final"> Final<br>
-						</label>
-					</form>
 				</div>
 				<div class="col col-sm-3" style="text-align:center">
-					<label id="team2CurrentScore">0</label>
+					<label id="team2CurrentScore" style="font-size: 300%; font-weight:bold;">0</label>
 				</div>
 			</div><!---close row for team score, quarter selection----->
+			<div class="row">
+				<div class="col-md-3" style="text-align:center;">
+					<!--needs js func to reset at q 2 and overtime-->
+					<label>TOL:</label>
+					<input type="checkbox" name="to1" id="1toButton1" checked="checked" value="1">
+					<input type="checkbox" name="to2" id="1toButton2" checked="checked" value="2">
+					<input type="checkbox" name="to3" id="1toButton3" checked="checked" value="3">
+				</div>
+				<div class="col-md-6"></div>
+				<div class="col-md-3" style="text-align:center;">
+					<label>TOL:</label>
+					<input type="checkbox" name="to1" id="2toButton1" checked="checked" value="1">
+					<input type="checkbox" name="to2" id="2toButton2" checked="checked" value="2">
+					<input type="checkbox" name="to3" id="2toButton3" checked="checked" value="3">
+				</div>
+			</div>
 
 		</div> <!-----close score area-------------------------------------------------------------->
 
 
 		<div class="team1Area" id="team1Area">
 			<!----open team1 Area------------------------------------------------------------------->
-			<label id="team1StatsAreaName">Team 1 Name</label>
+
 			<form>
 				<fieldset>
-					<legend>Statistics</legend>
+					<legend>Visiting Team Statistics</legend>
 					<div class="col">
 						<table class="table table-bordered table-responsive-sm">
 							<tbody>
 								<tr>
 									<td>Total Yards: <label id="team1TotalYardsLbl">0</label></td>
-									<td>Passing Yards: <label id="team1PassYardsLbl">0</label></td>
+									<td>Total Passing Yards: <label id="team1PassYardsLbl">0</label></td>
 								</tr>
 								<tr>
 									<td>First Downs: <label id="team1FirstDownLbl">0</label></td>
 									<td><label></label></td>
 								</tr>
 								<tr>
-									<td>Rushes: <label id="team1RushLabel">0</label></td>
-									<td>Rushing Yards: <label id="team1RushYardsLbl">0</label></td>
+									<td>Rush Attepmts: <label id="team1RushLabel">0</label></td>
+									<td>Total Rushing Yards: <label id="team1RushYardsLbl">0</label></td>
 								</tr>
 								<tr>
-									<td>Passes Attempted: <label id="team1PassesAttLbl">0</label></td>
-									<td>Completed Passes: <label id="team1PassComLbl">0</label></td>
+									<td>Attempted Passes: <label id="team1PassesAttLbl">0</label></td>
+									<td>Passes Completed: <label id="team1PassComLbl">0</label></td>
 								</tr>
 								<tr>
 									<td><label></label></td>
-									<td>Intercepted Passes: <label id="team1PassIntLbl">0</label></td>
+									<td>Passes Intercepted: <label id="team1PassIntLbl">0</label></td>
 								</tr>
 								<tr>
-									<td>Sacks: <label id="team1SackLbl">0</label></td>
-									<td>Yards Lost: <label id="team1YardLostLbl">0</label></td>
+									<td>Number Of Sacks: <label id="team1SackLbl">0</label></td>
+									<td>Total Sack Yards Lost: <label id="team1YardLostLbl">0</label></td>
 								</tr>
 								<tr>
 									<td>Fumbles: <label id="team1FumbleLbl">0</label></td>
 									<td>Fumbles Lost: <label id="team1FumblesLostLbl">0</label></td>
 								</tr>
 								<tr>
-									<td>Punts: <label id="team1PuntLabel">0</label></td>
-									<td>Average: <label id="team1AverageLbl">0</label></td>
+									<td>Number Of Punts: <label id="team1PuntLabel">0</label></td>
+									<td>Average Yards Per Punt: <label id="team1AverageLbl">0</label></td>
 								</tr>
 								<tr>
-									<td>Penalties: <label id="team1PenLbl">0</label></td>
-									<td>Penalty Yards: <label id="team1PenYardsLbl">0</label></td>
+									<td>Number Of Penalties: <label id="team1PenLbl">0</label></td>
+									<td>Total Penalty Yards: <label id="team1PenYardsLbl">0</label></td>
 								</tr>
 							</tbody>
 						</table>
@@ -729,48 +944,47 @@
 
 		<div class="team2Area" id="team2Area">
 			<!---open team 2 Area------------------------------------------------------------------->
-			<label id="team1StatsAreaName">Team 2 Stats</label>
 			<form>
 				<fieldset>
-					<legend>Statistics</legend>
+					<legend>Home Team Statistics</legend>
 					<div class="col">
 						<table class="table table-bordered table-responsive-sm">
 							<tbody>
 								<tr>
 									<td>Total Yards: <label id="team2TotalYardsLbl">0</label></td>
-									<td>Passing Yards: <label id="team2PassYardsLbl">0</label></td>
+									<td>Total Passing Yards: <label id="team2PassYardsLbl">0</label></td>
 								</tr>
 								<tr>
 									<td>First Downs: <label id="team2FirstDownLbl">0</label></td>
 									<td><label></label></td>
 								</tr>
 								<tr>
-									<td>Rushes: <label id="team2RushLabel">0</label></td>
-									<td>Rushing Yards: <label id="team2RushYardsLbl">0</label></td>
+									<td>Rush Attempts: <label id="team2RushLabel">0</label></td>
+									<td>Total Rushing Yards: <label id="team2RushYardsLbl">0</label></td>
 								</tr>
 								<tr>
-									<td>Passes Attempted: <label id="team2PassesAttLbl">0</label></td>
-									<td>Completed Passes: <label id="team2PassComLbl">0</label></td>
+									<td>Attempted Passes: <label id="team2PassesAttLbl">0</label></td>
+									<td>Passes Completed: <label id="team2PassComLbl">0</label></td>
 								</tr>
 								<tr>
 									<td><label></label></td>
-									<td>Intercepted Passes: <label id="team2PassIntLbl">0</label></td>
+									<td>Passes Intercepted: <label id="team2PassIntLbl">0</label></td>
 								</tr>
 								<tr>
-									<td>Sacks: <label id="team2SackLbl">0</label></td>
-									<td>Yards Lost: <label id="team2YardLostLbl">0</label></td>
+									<td>Number Of Sacks: <label id="team2SackLbl">0</label></td>
+									<td>Total Sack Yards Lost: <label id="team2YardLostLbl">0</label></td>
 								</tr>
 								<tr>
 									<td>Fumbles: <label id="team2FumbleLbl">0</label></td>
 									<td>Fumbles Lost: <label id="team2FumblesLostLbl">0</label></td>
 								</tr>
 								<tr>
-									<td>Punts: <label id="team2PuntLabel">0</label></td>
-									<td>Average: <label id="team2AverageLbl">0</label></td>
+									<td>Number Of Punts: <label id="team2PuntLabel">0</label></td>
+									<td>Average Yards Per Punt: <label id="team2AverageLbl">0</label></td>
 								</tr>
 								<tr>
-									<td>Penalties: <label id="team2PenLbl">0</label></td>
-									<td>Penalty Yards: <label id="team2PenYardsLbl">0</label></td>
+									<td>Number Of Penalties: <label id="team2PenLbl">0</label></td>
+									<td>Total Penalty Yards: <label id="team2PenYardsLbl">0</label></td>
 								</tr>
 							</tbody>
 						</table>
@@ -807,9 +1021,9 @@
 							</td> <!--fumble lost lbl++-->
 						</tr>
 						<tr>
-							<td><button id="team1PassInt" onclick="team1PassIntercepted()">Pass Intercepted</button></td> 
-							<td><button id="team1PassCom" onclick="team1PassCompleted()">Pass Completed</button></td> 
-							<td><button id="team1PassIncom" onclick="team1PassIncomplete()">Pass Incompleted</button></td> <!--pass completed lbl ++-->
+							<td><button id="team1PassInt" onclick="team1PassIntercepted()">Pass Intercepted</button></td>
+							<td><button id="team1PassCom" onclick="team1PassCompleted()">Pass Completed</button></td>
+							<td><button id="team1PassIncom" onclick="team1PassIncomplete()">Pass Incomplete</button></td> <!--pass completed lbl ++-->
 							<td><button id="team1PassYards" onclick="team1PassYards()">Passing Yards</button><br /><input size="2" id="team1PassYardsInput"></td>	<!--add input to total passing yard stat-->
 						</tr>
 						<tr>
@@ -831,8 +1045,8 @@
 
 		<div class="team2InputArea" id="team2InputArea">
 			<fieldset>
-				<legend class="inputClass">Input</legend>
-				<legend class="errormsg" style="visibility:hidden;" id="errorTeam1">Check your input</legend>
+				<legend class="inputClass" style="font-weight:bold;">Input</legend>
+				<legend class="errormsg" style="visibility:hidden;" id="errorTeam2">Check your input</legend>
 				<table class="table table-bordered table-responsive-sm">
 					<tbody>
 					<tbody>
@@ -860,7 +1074,7 @@
 						<tr>
 							<td><button id="team2PassInt" onclick="team2PassIntercepted()">Pass Intercepted</button></td> <!-- pass intercepted lbl++-->
 							<td><button id="team2PassCom" onclick="team2PassCompleted()">Pass Completed</button></td> <!--pass completed lbl ++-->
-							<td><button id="team2PassIncom" onclick="team2PassIncomplete()">Pass Incompleted</button></td> <!--pass completed lbl ++-->
+							<td><button id="team2PassIncom" onclick="team2PassIncomplete()">Pass Incomplete</button></td> <!--pass completed lbl ++-->
 							<td><button id="team2PassYards" onclick="team2PassYards()">Passing Yards</button><br /><input size="2" id="team2PassYardsInput"></td>	<!--add input to total passing yard stat-->
 						</tr>
 						<tr>
@@ -881,5 +1095,6 @@
 	</div> <!-----close container---------->
 
 </body>
+
 
 

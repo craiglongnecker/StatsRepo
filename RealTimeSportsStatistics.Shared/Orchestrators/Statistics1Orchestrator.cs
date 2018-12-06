@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Data.SqlClient;
+using System;
+using System.IO;
 
 namespace RealTimeSportsStatistics.Shared.Orchestrators
 {
@@ -40,6 +43,33 @@ namespace RealTimeSportsStatistics.Shared.Orchestrators
                 Team2TotalNumberOfPenalties = x.Team2TotalNumberOfPenalties
             }).ToListAsync();
             return statistics1;
+        }
+
+        public async Task<bool> SaveStatistics1(Statistics1ViewModel stats)
+        {
+            try
+            {
+                System.Data.SqlClient.SqlConnection sqlConnection1 =
+                  new SqlConnection("Server=localhost\\SQLEXPRESS;Trusted_Connection=True;Initial Catalog=RealTimeSportsStatistics;Integrated Security = SSPI");
+                SqlCommand cmd = new System.Data.SqlClient.SqlCommand
+                {
+                    CommandType = System.Data.CommandType.Text,
+                    CommandText = @"
+                Insert into [Statistics1](Team2Id, Team2TotalScore, Team2TotalYards, Team2TotalRushingYards, Team2TotalPassingYards, Team2TotalSackYardsLost, Team2TotalPenaltyYards, Team2AverageYardsPerPunt, Team2TotalFirstDowns, Team2TotalRushes, Team2TotalPassesAttempted, Team2TotalPassesCompleted, Team2TotalPassesIntercepted, Team2TotalSacks, Team2TotalFumbles, Team2TotalFumblesLost, Team2TotalNumberOfPunts, Team2TotalNumberOfPenalties) " +
+                    "Values('" + stats.Team2Id + "', '" + stats.Team2TotalScore + "', '" + stats.Team2TotalYards + "', '" + stats.Team2TotalRushingYards + "', '" + stats.Team2TotalPassingYards + "', '" + stats.Team2TotalSackYardsLost + "', '" + stats.Team2TotalPenaltyYards + "', '" + stats.Team2AverageYardsPerPunt + "', '" + stats.Team2TotalFirstDowns + "', '" + stats.Team2TotalRushes + "', '" + stats.Team2TotalPassesAttempted + "', '" + stats.Team2TotalPassesCompleted + "', '" + stats.Team2TotalPassesIntercepted + "', '" + stats.Team2TotalSacks + "', '" + stats.Team2TotalFumbles + "', '" + stats.Team2TotalFumblesLost + "', '" + stats.Team2TotalNumberOfPunts + "', '" + stats.Team2TotalNumberOfPenalties + "')",
+                    Connection = sqlConnection1
+
+                };
+                sqlConnection1.Open();
+                cmd.ExecuteNonQuery();
+                sqlConnection1.Close();
+
+            }
+            catch (Exception e)
+            {
+                File.WriteAllText(@"c:\Temp\Error.Txt", e.Message);
+            }
+            return true;
         }
     }
 }
